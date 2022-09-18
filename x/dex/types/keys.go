@@ -1,4 +1,7 @@
+// x/dex/types/keys.go
 package types
+
+import "fmt"
 
 const (
 	// ModuleName defines the module name
@@ -30,4 +33,8 @@ var (
 
 func KeyPrefix(p string) []byte {
 	return []byte(p)
+}
+
+func OrderBookIndex(portID string, channelID string, sourceDenom string, targetDenom string) string {
+	return fmt.Sprintf("%s-%s-%s-%s", portID, channelID, sourceDenom, targetDenom)
 }
